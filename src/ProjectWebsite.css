@@ -1,0 +1,173 @@
+/* ===== Base ===== */
+:root{
+  --bg:#f7f9fc; --surface:#fff; --text:#0f172a; --muted:#64748b;
+  --brand:#2563eb; --border:#e5e7eb; --radius:14px; --maxw:1100px;
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--text);background:var(--bg)}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.muted{color:var(--muted)}
+
+/* ===== Frame ===== */
+.site{min-height:100%;display:flex;flex-direction:column}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+.footer{margin-top:auto;padding:20px;text-align:center;color:var(--muted)}
+
+/* ===== Navbar ===== */
+.navbar{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);z-index:50}
+.nav-container{display:flex;justify-content:space-between;align-items:center;padding:.75rem 1rem;max-width:1200px;margin:0 auto}
+.brand{font-weight:700;font-size:1rem;text-decoration:none;color:#111827}
+.nav-links a{margin-left:1rem;text-decoration:none;color:#374151;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#111827}
+.nav-links a.active{color:#2563eb;border-bottom:2px solid #2563eb;padding-bottom:2px}
+
+/* ===== Hero ===== */
+.hero{padding:24px 16px 10px 16px;max-width:var(--maxw);margin:0 auto}
+.hero__title{font-size:32px;line-height:1.15;margin:6px 0 8px 0;font-weight:800;letter-spacing:-.3px}
+.hero__subtitle{color:var(--muted);max-width:900px;margin:0}
+
+/* ===== Sections ===== */
+.section{padding:18px 16px}
+.section__title{font-size:20px;font-weight:800;margin:0 0 6px 0;letter-spacing:-.2px}
+.section__subtitle{color:var(--muted);margin:0 0 12px 0}
+.section__body{display:grid;gap:14px}
+
+/* ===== Card ===== */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:0 2px 12px rgba(15,23,42,0.03)}
+
+/* ===== About: Team photos ===== */
+.team-photos{margin-top:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px}
+.photo{width:100%;aspect-ratio:1/1;overflow:hidden;border-radius:12px;border:1px solid var(--border);background:#f8fafc;display:grid;place-items:center}
+.photo img{width:100%;height:100%;object-fit:cover}
+
+/* ===== Tables (Documents page) ===== */
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{border-bottom:1px solid var(--border);padding:10px;text-align:left}
+.table thead th{background:#fafafa}
+
+/* ===== Gantt (Roadmap) ===== */
+.roadmap{display:grid;gap:8px}
+.roadmap__months{display:grid;grid-template-columns:repeat(12,1fr);gap:6px;font-size:12px;color:#64748b}
+.roadmap__months>div{background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:6px 8px;text-align:center}
+.roadmap__rows{display:grid;gap:10px}
+.roadmap__row{display:grid;grid-template-columns:200px 1fr;gap:8px;align-items:center}
+.roadmap__label{font-weight:600;color:#0f172a}
+.roadmap__barwrap{position:relative;height:30px;background:#f8fafc;border:1px dashed var(--border);border-radius:8px;overflow:hidden}
+.roadmap__bar{position:absolute;top:4px;height:22px;background:#c7d2fe;border:1px solid #a5b4fc;border-radius:8px}
+
+/* ===== Contact ===== */
+.contact{display:grid;gap:8px;margin-bottom:10px}
+.contact__item{display:flex;align-items:center;gap:8px}
+
+
+/* === Team cards === */
+/* === Team cards === */
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr); /* 六列 */
+  gap:16px;
+}
+@media (max-width: 1024px){
+  .team-grid{ grid-template-columns:repeat(3,1fr); } /* 中屏三列 */
+}
+@media (max-width: 640px){
+  .team-grid{ grid-template-columns:repeat(2,1fr); } /* 小屏两列 */
+}
+
+.team-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:12px;
+  text-align:center;
+  box-shadow:0 2px 10px rgba(15,23,42,.04);
+}
+
+.team-card__photo{
+  width:100%;
+  aspect-ratio: 1 / 1;           /* 正方形头像区域 */
+  border-radius:10px;
+  overflow:hidden;
+  background:#f1f5f9;
+  display:grid; place-items:center;
+}
+.team-card__photo img{
+  width:100%; height:100%; object-fit:cover;
+}
+.team-card__name{ margin-top:10px; font-weight:700; }
+.team-card__role{ color:var(--muted); font-size:.95rem; }
+
+
+.no-photo{
+  width:60%; height:60%;
+  border-radius:12px; background:#e5e7eb;
+}
+
+
+/* Uploader */
+.uploader{
+  border:2px dashed var(--border);
+  border-radius:12px;
+  background:#fff;
+  padding:18px;
+  text-align:center;
+  cursor:pointer;
+}
+.uploader--over{ background:#f8fafc; }
+
+.table select, .table input.doc-notes{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:6px 8px;
+  font:inherit;
+}
+.doc-actions{ display:flex; gap:8px; }
+.doc-actions button{
+  padding:6px 10px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:#fff;
+  cursor:pointer;
+}
+.doc-actions button:hover{ background:#f8fafc; }
+.doc-actions .danger{ border-color:#fecaca; background:#fff0f0; }
+
+
+
+/* Notes UI */
+.note-form{
+  display:grid;
+  grid-template-columns: 140px 1fr 1fr auto;
+  gap:10px; margin-top:10px;
+}
+.note-list{ display:grid; gap:12px; }
+.note-item{ border:1px solid var(--border); border-radius:10px; background:#fff; padding:10px; }
+.note-row{ display:grid; grid-template-columns: 140px 1fr 1fr auto; gap:10px; align-items:center; }
+.note-actions{ display:flex; gap:8px; justify-content:flex-end; }
+
+.linkwrap{ display:flex; align-items:center; gap:8px; }
+.linkbtn{
+  display:inline-grid; place-items:center; padding:6px 10px;
+  border:1px solid var(--border); border-radius:8px; background:#fff;
+}
+.linkbtn:hover{ background:#f8fafc; }
+
+.btn{
+  padding:8px 12px; border:1px solid var(--border); border-radius:8px; background:#fff; cursor:pointer; font-weight:600;
+}
+.btn:hover{ background:#f8fafc; }
+.danger{ border-color:#fecaca; background:#fff0f0; }
+
+.note-form input,
+.note-row input{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:8px 10px;
+  font:inherit;
+}
+.note-row input.short,
+.note-form input[type="date"]{ min-width: 120px; }
