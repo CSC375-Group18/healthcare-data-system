@@ -171,3 +171,213 @@ a:hover{text-decoration:underline}
 }
 .note-row input.short,
 .note-form input[type="date"]{ min-width: 120px; }
+
+
+/* ===== Simple Gantt (drag to reorder) ===== */
+.gantt-simple { padding: 12px; }
+
+.gantt-s__months{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 6px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #64748b;
+}
+.gantt-s__m{
+  text-align: center;
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px 0;
+}
+
+.gantt-s__rows{ display: grid; gap: 10px; }
+.gantt-s__row{
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.gantt-s__label{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+.gantt-s__handle{
+  cursor: grab;
+  display: inline-grid;
+  place-items: center;
+  width: 24px; height: 24px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  user-select: none;
+  background:#fff;
+}
+
+.gantt-s__barwrap{
+  position: relative;
+  height: 26px;
+  border-radius: 8px;
+  background: #f8fafc;
+  border: 1px dashed var(--border);
+  overflow: hidden;
+}
+.gantt-s__bar{
+  position: absolute;
+  top: 3px; bottom: 3px;
+  border-radius: 6px;
+  background: #c7d2fe;      /* indigo-200 */
+  border: 1px solid #93c5fd; /* blue-300 */
+}
+/* prevent text selection while dragging */
+body.dragging {
+  user-select: none;
+}
+
+/* ---- Editable simple Gantt additions ---- */
+.gantt-s__titleInput{
+  flex: 1;
+  min-width: 120px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 8px;
+  font: inherit;
+}
+
+.gantt-s__label button.danger{
+  padding: 6px 8px;
+  border: 1px solid #fecaca;
+  background: #fff0f0;
+  border-radius: 8px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.gantt-s__inputs{
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.gantt-s__inputs label{
+  display: flex; align-items: center; gap: 6px; font-size: 12px; color:#64748b;
+}
+.gantt-s__inputs input{
+  width: 64px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px 6px;
+  font: inherit;
+}
+
+/* (existing simple Gantt styles you added earlier stay as-is) */
+/* nicer Add row controls */
+.gantt-form{
+  display: grid;
+  grid-template-columns: 1fr 90px 90px auto;
+  gap: 10px;
+}
+.gantt-form__title{
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: inherit;
+  background: #fff;
+}
+.gantt-form__num{
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: inherit;
+  background: #fff;
+  text-align: center;
+}
+.btn--primary{
+  border: 1px solid #93c5fd;
+  background: #dbeafe;
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+/* bar resize handles */
+.gantt-s__bar{
+  position: absolute;
+  top: 3px; bottom: 3px;
+  border-radius: 8px;
+  background: #c7d2fe;
+  border: 1px solid #93c5fd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: auto;
+}
+
+.gantt-s__knob{
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border: 2px solid #93c5fd;
+  border-radius: 999px;
+  display: inline-block;
+  cursor: ew-resize;
+  box-shadow: 0 1px 0 rgba(0,0,0,.05);
+}
+.gantt-s__knob.left  { margin-left: 4px; }
+.gantt-s__knob.right { margin-right: 4px; }
+
+/* prevent text selection while dragging/resizing */
+body.dragging { user-select: none; }
+
+/* Smooth position/size changes for bars */
+.gantt-s__bar{
+  position: absolute;
+  top: 3px; bottom: 3px;
+  border-radius: 8px;
+  background: #c7d2fe;           /* indigo-200 */
+  border: 1px solid #93c5fd;     /* blue-300 */
+  transition: left 140ms ease, width 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+  overflow: visible;
+}
+
+/* Animated feedback while resizing */
+.gantt-s__bar.is-resizing{
+  box-shadow: 0 0 0 2px #bfdbfe inset, 0 0 0 6px rgba(147,197,253,.22);
+  transform: translateZ(0) scaleY(1.03);
+}
+
+/* Invisible edge handles (bigger than they look) */
+.gantt-s__edge{
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 14px;
+  cursor: ew-resize;
+}
+.gantt-s__edge.left  { left: -6px; }
+.gantt-s__edge.right { right: -6px; }
+
+/* Subtle affordance on hover: fade-in pill near edge */
+.gantt-s__edge::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:10px;height:10px;
+  border-radius:999px;
+  background:#e2e8f0;           /* slate-200 */
+  transform: translate(-50%, -50%) scale(0.6);
+  opacity:0;
+  transition: opacity 120ms ease, transform 120ms ease;
+  pointer-events:none;
+}
+.gantt-s__edge:hover::after{
+  opacity:1;
+  transform: translate(-50%, -50%) scale(1);
+}
+

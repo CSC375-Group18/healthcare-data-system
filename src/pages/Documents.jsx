@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import PageHeader from "../../components/PageHeader";
-import { addFile, getAllFiles, getFile, deleteFile, updateFile } from "../../utils/idb";
+import PageHeader from "../components/PageHeader";
+import { addFile, getAllFiles, getFile, deleteFile, updateFile } from "../utils/idbs";
 
 const DOC_TYPES = ["Formal", "Notes", "Other"];
 

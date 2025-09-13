@@ -1,7 +1,6 @@
-// src/pages/Notes.jsx
 import { useEffect, useState } from "react";
 import PageHeader from "../components/PageHeader";
-import { addNote, getNotes, updateNote, deleteNote } from "../utils/idbNotes";
+import { addNote, getNotes, updateNote, deleteNote } from "../utils/idbs";
 
 function NoteForm({ kind, onAdded }) {
   const [date, setDate] = useState(() => new Date().toISOString().slice(0, 10));
