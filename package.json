@@ -1,8 +1,6 @@
 {
   "name": "csc375-healthcare-data-system",
-  "homepage": " https://csc375-group18.github.io/csc375-healthcare-data-system/",
-
-
+  "homepage": "https://csc375-group18.github.io/healthcare-data-system/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
