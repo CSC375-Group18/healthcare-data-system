@@ -59,9 +59,11 @@ export default function Home() {
           <h2 className="section__title">Client Organization</h2>
           <Card>
             <p>
-              Our client is a regional healthcare authority responsible for patient care and operational oversight across
-              multiple departments. They currently rely on Excel spreadsheets for data management, this includes patient 
-              records, treatment plans, and operational metrics. This approach has led to inefficiencies, data entry errors, 
+              Our client is a regional healthcare authority responsible for patient 
+              care and operational oversight across multiple departments. They 
+              currently rely on Excel spreadsheets for data management, this includes 
+              patient records, treatment plans, and operational metrics. This 
+              approach has led to inefficiencies, data entry errors, 
               and challenges in ensuring consistency across departments.
             </p>
           </Card>
