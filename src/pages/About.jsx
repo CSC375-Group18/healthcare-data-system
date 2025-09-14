@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 import '../ProjectWebsite.css';
 
 import TeamCard from '../components/TeamCard';
-import p1 from '../assets/blank.png';
-import p2 from '../assets/blank.png';
+import p1 from '../assets/451dea3a-b05e-4620-a814-cd68cd78ada8.png';
+import p2 from '../assets/0a3603ad-681f-4491-8fc6-644f7bbaa5eb.png';
 import p3 from '../assets/Weixin Image_20250913211725_76.jpg';
 import p4 from '../assets/e18b2a56-d217-40ee-b455-f27cc3333d49.png';
-import p5 from '../assets/0a3603ad-681f-4491-8fc6-644f7bbaa5eb.png';
+import p5 from '../assets/blank.png';
 import p6 from '../assets/team1.png';
 
 const Card = ({ children }) => <div className="card">{children}</div>;
@@ -129,10 +129,10 @@ export default function Home() {
           <div className="card">
             <div className="team-grid">
               <TeamCard photo={p1} name="Nitin Ruhil" role="Client" />
-              <TeamCard photo={p2} name="Wenchu Kan" role="Unknown" />
+              <TeamCard photo={p2} name="Wenchu Kan" role="System Analyst" />
               <TeamCard photo={p3} name="Xiangyu Yang" role="System Analyst" />
               <TeamCard photo={p4} name="Yilun Shi" role="Client" />
-              <TeamCard photo={p5} name="Zhenhui Zhu" role="Client" />
+              <TeamCard photo={p5} name="Zhenhui Zhu" role="Unknown" />
               <TeamCard photo={p6} name="Brian Pham" role="System Analyst" />
             </div>
           </div>
