@@ -47,6 +47,9 @@ export default function Home() {
               group formed for CSC 375 – Introduction to System Analysis. Our
               mission is to design innovative information systems that improve
               efficiency, accuracy, and collaboration for client organizations.
+              Our team consists of six members with diverse skills in system analysis, 
+              design, and implementation. Our approach is user-centered, ensuring that 
+              our solutions meet the needs of end-users and stakeholders alike.
             </p>
           </Card>
         </section>
@@ -56,11 +59,12 @@ export default function Home() {
           <h2 className="section__title">Client Organization</h2>
           <Card>
             <p>
-              Our client is a xxx
-              responsible for patient care and operational oversight across
-              multiple departments. They currently rely on Excel spreadsheets
-              for data management, which causes inefficiency and versioning
-              issues.
+              Our client is a regional healthcare authority responsible for patient 
+              care and operational oversight across multiple departments. They 
+              currently rely on Excel spreadsheets for data management, this includes 
+              patient records, treatment plans, and operational metrics. This 
+              approach has led to inefficiencies, data entry errors, 
+              and challenges in ensuring consistency across departments.
             </p>
           </Card>
         </section>
@@ -129,7 +133,7 @@ export default function Home() {
               <TeamCard photo={p3} name="Xiangyu Yang" role="role" />
               <TeamCard photo={p4} name="Yilun Shi" role="role" />
               <TeamCard photo={p5} name="Zhenhui Zhu" role="role" />
-              <TeamCard photo={p6} name="Brian Pham" role="role" />
+              <TeamCard photo={p6} name="Brian Pham" role="System Analyst" />
             </div>
           </div>
         </section>
